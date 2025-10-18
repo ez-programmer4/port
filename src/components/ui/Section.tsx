@@ -3,24 +3,25 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionProps {
   children: React.ReactNode;
   title?: string;
   subtitle?: string;
   className?: string;
+  id?: string;
 }
 
 const Section = forwardRef<HTMLElement, SectionProps>(
-  ({ children, title, subtitle, className = "", ...props }, ref) => {
+  ({ children, title, subtitle, className = "", id }, ref) => {
     return (
       <motion.section
         ref={ref}
+        id={id}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className={`py-20 px-4 sm:px-6 lg:px-8 ${className}`}
-        {...props}
       >
         <div className="max-w-7xl mx-auto">
           {(title || subtitle) && (

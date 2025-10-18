@@ -3,15 +3,16 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ContainerProps {
   children: React.ReactNode;
   variant?: "default" | "narrow" | "wide";
   animate?: boolean;
+  className?: string;
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   (
-    { children, variant = "default", animate = true, className = "", ...props },
+    { children, variant = "default", animate = true, className = "" },
     ref
   ) => {
     const variants = {
@@ -25,7 +26,6 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         <div
           ref={ref}
           className={`${variants[variant]} ${className}`}
-          {...props}
         >
           {children}
         </div>
@@ -40,7 +40,6 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className={`${variants[variant]} ${className}`}
-        {...props}
       >
         {children}
       </motion.div>

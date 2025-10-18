@@ -3,15 +3,17 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps {
   variant?: "default" | "elevated" | "outlined";
   hover?: boolean;
   children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   (
-    { variant = "default", hover = false, children, className = "", ...props },
+    { variant = "default", hover = false, children, className = "", onClick },
     ref
   ) => {
     const baseClasses = "rounded-2xl transition-all duration-300";
@@ -29,12 +31,12 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <motion.div
         ref={ref}
+        onClick={onClick}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className={`${baseClasses} ${variants[variant]} ${hoverClasses} ${className}`}
-        {...props}
       >
         {children}
       </motion.div>

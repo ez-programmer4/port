@@ -3,11 +3,16 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   isLoading?: boolean;
+  className?: string;
+  disabled?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "button" | "submit" | "reset";
+  form?: string;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -18,6 +23,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       isLoading = false,
       className = "",
+      type,
+      form,
       ...props
     },
     ref
@@ -45,9 +52,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
+        type={type}
+        form={form}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+        className={`${baseClasses} ${
+          variants[variant as keyof typeof variants]
+        } ${sizes[size as keyof typeof sizes]} ${className}`}
         disabled={isLoading}
         {...props}
       >
@@ -67,4 +78,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export default Button;
-

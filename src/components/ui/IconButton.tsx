@@ -3,12 +3,17 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
-interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps {
   icon: LucideIcon;
   size?: "sm" | "md" | "lg";
   variant?: "default" | "ghost" | "outline";
   children?: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  "aria-label"?: string;
+  title?: string;
 }
 
 export default function IconButton({
@@ -17,7 +22,11 @@ export default function IconButton({
   variant = "default",
   children,
   className = "",
-  ...props
+  onClick,
+  disabled,
+  type,
+  "aria-label": ariaLabel,
+  title,
 }: IconButtonProps) {
   const baseClasses =
     "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
@@ -39,10 +48,14 @@ export default function IconButton({
 
   return (
     <motion.button
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
+      aria-label={ariaLabel}
+      title={title}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
     >
       <Icon className="w-5 h-5" />
       {children && <span className="ml-2">{children}</span>}
