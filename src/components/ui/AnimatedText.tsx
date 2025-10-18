@@ -3,14 +3,16 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 
-interface AnimatedTextProps extends React.HTMLAttributes<HTMLElement> {
+interface AnimatedTextProps {
   children: React.ReactNode;
   delay?: number;
   duration?: number;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+  className?: string;
+  [key: string]: any;
 }
 
-const AnimatedText = forwardRef<HTMLElement, AnimatedTextProps>(
+const AnimatedText = forwardRef<HTMLDivElement, AnimatedTextProps>(
   (
     {
       children,
@@ -22,17 +24,17 @@ const AnimatedText = forwardRef<HTMLElement, AnimatedTextProps>(
     },
     ref
   ) => {
-    const Component = motion[as];
+    const Component = motion[as] as any;
 
     return (
       <Component
-        ref={ref}
+        ref={ref as any}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration, delay }}
         className={className}
-        {...props}
+        {...(props as any)}
       >
         {children}
       </Component>
@@ -43,4 +45,3 @@ const AnimatedText = forwardRef<HTMLElement, AnimatedTextProps>(
 AnimatedText.displayName = "AnimatedText";
 
 export default AnimatedText;
-
