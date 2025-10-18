@@ -66,37 +66,48 @@ Have these values ready:
 
 ## 🗄️ STEP 1: Create Your Database (5 min)
 
-Your app needs a MySQL database. We'll use **PlanetScale** (free & excellent).
+Your app needs a MySQL database. We'll use **Railway** (free $5 credit/month - plenty for a portfolio!).
 
-### 1.1 Sign Up for PlanetScale
+### 1.1 Sign Up for Railway
 
-1. Go to https://planetscale.com
-2. Click **"Sign up"**
-3. Choose **"Continue with GitHub"**
-4. Authorize PlanetScale
+1. Go to https://railway.app
+2. Click **"Login"** or **"Start a New Project"**
+3. Choose **"Login with GitHub"**
+4. Authorize Railway
 
-### 1.2 Create Database
+### 1.2 Create MySQL Database
 
-1. Click **"Create a database"**
-2. **Database name**: `portfolio`
-3. **Region**: Choose closest to you (e.g., AWS us-east-1)
-4. Click **"Create database"**
-
-Wait ~30 seconds for it to initialize.
+1. Click **"New Project"**
+2. Click **"Provision MySQL"**
+3. Wait ~30 seconds for it to deploy
 
 ### 1.3 Get Connection String
 
-1. Click **"Connect"**
-2. **Connect with**: Select **"Prisma"** from dropdown
-3. You'll see a connection string like:
+1. Click on the **MySQL** service card
+2. Go to the **"Connect"** tab
+3. You'll see connection details. Look for the **"MySQL Connection URL"** or build it from:
+
+   - Host
+   - Port
+   - Database
+   - Username
+   - Password
+
+4. The format should be:
 
 ```
-mysql://xxxxx:pscale_pw_xxxxx@aws.connect.psdb.cloud/portfolio?sslaccept=strict
+mysql://USERNAME:PASSWORD@HOST:PORT/DATABASE
 ```
 
-4. **Copy this entire string** - you'll need it for Vercel!
+Example:
 
-**✅ Done!** You have your database ready.
+```
+mysql://root:AbCdEfGh1234@containers-us-west-1.railway.app:5678/railway
+```
+
+5. **Copy this entire connection string** - you'll need it for Vercel!
+
+**✅ Done!** You have your free database ready with $5/month credit!
 
 ---
 
@@ -175,7 +186,7 @@ Click **"Environment Variables"** section, then add these **ONE BY ONE**:
 #### Variable 1: DATABASE_URL
 
 - **Key**: `DATABASE_URL`
-- **Value**: Paste the connection string from PlanetScale (Step 1.3)
+- **Value**: Paste the connection string from Railway (Step 1.3)
 - **Environment**: Select all (Production, Preview, Development)
 
 #### Variable 2: NEXTAUTH_URL
@@ -445,7 +456,7 @@ git push origin main
 
 ### You Have FULL Backend:
 
-- ✅ **MySQL Database** - PlanetScale (5GB free)
+- ✅ **MySQL Database** - Railway (free $5/month credit)
 - ✅ **API Routes** - All your `/api/*` endpoints work
 - ✅ **Authentication** - NextAuth.js sessions
 - ✅ **File Uploads** - Cloudinary integration
@@ -500,7 +511,7 @@ npm run db:seed
 **Check:**
 
 1. Is `DATABASE_URL` correct in Vercel?
-2. Copy it exactly from PlanetScale
+2. Copy it exactly from Railway
 
 **Fix**: Update `DATABASE_URL` in Vercel → Settings → Environment Variables, then redeploy
 
@@ -517,14 +528,14 @@ npm run db:seed
 
 ## 📊 Your Free Resources
 
-| Service         | Free Tier       | What You Get                 |
-| --------------- | --------------- | ---------------------------- |
-| **Vercel**      | Unlimited       | Hosting, SSL, CDN, Analytics |
-| **PlanetScale** | 5GB storage     | MySQL database, Backups      |
-| **Cloudinary**  | 25GB storage    | Image hosting, CDN           |
-| **GitHub**      | Unlimited       | Version control              |
-| **Domain**      | Free for 1 year | ezedin.me (Student Pack)     |
-| **Total**       | **$0/month**    | Everything! 🎉               |
+| Service        | Free Tier       | What You Get                 |
+| -------------- | --------------- | ---------------------------- |
+| **Vercel**     | Unlimited       | Hosting, SSL, CDN, Analytics |
+| **Railway**    | $5 credit/month | MySQL database               |
+| **Cloudinary** | 25GB storage    | Image hosting, CDN           |
+| **GitHub**     | Unlimited       | Version control              |
+| **Domain**     | Free for 1 year | ezedin.me (Student Pack)     |
+| **Total**      | **$0/month**    | Everything! 🎉               |
 
 ---
 

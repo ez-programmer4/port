@@ -32,7 +32,7 @@ export default function LoginPage() {
         router.push("/admin/dashboard");
         router.refresh();
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
@@ -141,12 +141,12 @@ export default function LoginPage() {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <a
+            <Link
               href="/"
               className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
             >
               ← Back to Portfolio
-            </a>
+            </Link>
           </div>
         </div>
 

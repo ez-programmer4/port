@@ -69,10 +69,10 @@ https://ezedin.me/admin/login
             │              │
             ▼              ▼
    ┌────────────┐   ┌──────────────┐
-   │ CLOUDINARY │   │ PLANETSCALE  │
+   │ CLOUDINARY │   │   RAILWAY    │
    │  (Images)  │   │   (MySQL)    │
    │            │   │              │
-   │ 25GB Free  │   │  5GB Free    │
+   │ 25GB Free  │   │ $5 Credit/mo │
    └────────────┘   └──────────────┘
 ```
 
@@ -121,8 +121,8 @@ https://ezedin.me/admin/login
 - ✅ Contact form submissions
 
 **Database type:** MySQL (industry standard)
-**Size:** 5GB free (plenty for your portfolio!)
-**Backups:** Automatic by PlanetScale
+**Credit:** $5/month free (plenty for your portfolio!)
+**Backups:** Available in Railway dashboard
 
 ---
 
@@ -153,14 +153,14 @@ git push origin main
 
 ## 💰 Cost Breakdown
 
-| Service         | What It Does                        | Free Tier                  | Cost      |
-| --------------- | ----------------------------------- | -------------------------- | --------- |
-| **Vercel**      | Hosts your app (frontend + backend) | 100 GB bandwidth           | $0/mo     |
-| **PlanetScale** | MySQL database                      | 5GB storage                | $0/mo     |
-| **Cloudinary**  | Image storage & CDN                 | 25GB storage               | $0/mo     |
-| **GitHub**      | Code hosting & version control      | Unlimited repos            | $0/mo     |
-| **Domain**      | ezedin.me                           | 1 year free (Student Pack) | $0/yr     |
-|                 |                                     | **TOTAL:**                 | **$0** 🎉 |
+| Service        | What It Does                        | Free Tier                  | Cost      |
+| -------------- | ----------------------------------- | -------------------------- | --------- |
+| **Vercel**     | Hosts your app (frontend + backend) | 100 GB bandwidth           | $0/mo     |
+| **Railway**    | MySQL database                      | $5 credit/month            | $0/mo     |
+| **Cloudinary** | Image storage & CDN                 | 25GB storage               | $0/mo     |
+| **GitHub**     | Code hosting & version control      | Unlimited repos            | $0/mo     |
+| **Domain**     | ezedin.me                           | 1 year free (Student Pack) | $0/yr     |
+|                |                                     | **TOTAL:**                 | **$0** 🎉 |
 
 ---
 
@@ -242,7 +242,7 @@ You're getting a **professional, full-stack web application**:
 
 - Domain: **ezedin.me**
 - Hosting: **Vercel** (frontend + backend)
-- Database: **PlanetScale** (MySQL)
+- Database: **Railway** (MySQL)
 - Images: **Cloudinary**
 
 ### What It Costs:

@@ -10,7 +10,6 @@ import {
   User,
   Briefcase,
   FolderGit2,
-  Code2,
   MessageCircle,
   Mail,
 } from "lucide-react";

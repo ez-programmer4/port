@@ -15,7 +15,7 @@ interface Message {
 }
 
 export default function MessagesPage() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
 

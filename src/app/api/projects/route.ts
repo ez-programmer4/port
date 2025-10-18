@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const featured = searchParams.get("featured");
     const category = searchParams.get("category");
 
-    const where: any = {};
+    const where: { isFeatured?: boolean; category?: string } = {};
 
     if (featured === "true") {
       where.isFeatured = true;

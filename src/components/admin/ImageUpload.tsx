@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CldUploadWidget } from "next-cloudinary";
-import { Upload, X, Image as ImageIcon } from "lucide-react";
+import { Upload, X } from "lucide-react";
 import Image from "next/image";
 
 interface ImageUploadProps {
@@ -22,7 +22,7 @@ export default function ImageUpload({
 
   const [uploadError, setUploadError] = useState("");
 
-  const handleUpload = (result: any) => {
+  const handleUpload = (result: { event: string; info: { secure_url: string } }) => {
     if (result.event === "success") {
       onChange(result.info.secure_url);
       setUploadError("");
@@ -30,7 +30,7 @@ export default function ImageUpload({
     setIsUploading(false);
   };
 
-  const handleError = (error: any) => {
+  const handleError = (error: Error) => {
     console.error("Upload error:", error);
     setUploadError("Upload failed. Check Cloudinary configuration.");
     setIsUploading(false);

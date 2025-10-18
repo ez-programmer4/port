@@ -2,7 +2,6 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import {
   LayoutDashboard,
   FolderGit2,

@@ -47,7 +47,7 @@ Want to understand what you're building? This explains:
 
 | Step                | Time       | What                              |
 | ------------------- | ---------- | --------------------------------- |
-| Setup database      | 5 min      | PlanetScale (free MySQL)          |
+| Setup database      | 5 min      | Railway (free MySQL)              |
 | Push to GitHub      | 2 min      | Version control                   |
 | Deploy to Vercel    | 5 min      | Hosting + SSL                     |
 | Connect domain      | 3 min      | Point ezedin.me to Vercel         |
@@ -79,13 +79,13 @@ Have these ready:
 
 ## 💰 Cost Breakdown
 
-| Service     | Cost     | What You Get           |
-| ----------- | -------- | ---------------------- |
-| Vercel      | $0/month | Hosting + SSL + CDN    |
-| PlanetScale | $0/month | 5GB MySQL database     |
-| Cloudinary  | $0/month | 25GB image storage     |
-| Domain      | $0/year  | Free with Student Pack |
-| **TOTAL**   | **$0**   | **Everything!** 🎉     |
+| Service    | Cost            | What You Get           |
+| ---------- | --------------- | ---------------------- |
+| Vercel     | $0/month        | Hosting + SSL + CDN    |
+| Railway    | $5 credit/month | MySQL database (free)  |
+| Cloudinary | $0/month        | 25GB image storage     |
+| Domain     | $0/year         | Free with Student Pack |
+| **TOTAL**  | **$0**          | **Everything!** 🎉     |
 
 ---
 
@@ -109,7 +109,7 @@ Your portfolio will be at https://ezedin.me
 
 ### "Will I have a real database?"
 
-**Yes!** PlanetScale gives you a full MySQL database (5GB free).
+**Yes!** Railway gives you a full MySQL database with $5 credit/month (more than enough for a portfolio).
 
 ### "Will my admin dashboard work?"
 
@@ -121,7 +121,7 @@ Your portfolio will be at https://ezedin.me
 
 ### "Do I need a credit card?"
 
-**No!** Everything is completely free (Vercel, PlanetScale, Cloudinary free tiers).
+**No!** Everything is completely free (Vercel, Railway $5 credit, Cloudinary free tiers).
 
 ### "Will it work with ezedin.me?"
 
