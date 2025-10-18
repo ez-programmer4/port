@@ -22,7 +22,7 @@ export default function ImageUpload({
 
   const [uploadError, setUploadError] = useState("");
 
-  const handleUpload = (result: { event: string; info: { secure_url: string } }) => {
+  const handleUpload = (result: any) => {
     if (result.event === "success") {
       onChange(result.info.secure_url);
       setUploadError("");
@@ -30,7 +30,7 @@ export default function ImageUpload({
     setIsUploading(false);
   };
 
-  const handleError = (error: Error) => {
+  const handleError = (error: any) => {
     console.error("Upload error:", error);
     setUploadError("Upload failed. Check Cloudinary configuration.");
     setIsUploading(false);
