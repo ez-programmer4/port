@@ -22,6 +22,7 @@ export default function ImageUpload({
 
   const [uploadError, setUploadError] = useState("");
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleUpload = (result: any) => {
     if (result.event === "success") {
       onChange(result.info.secure_url);
@@ -30,6 +31,7 @@ export default function ImageUpload({
     setIsUploading(false);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleError = (error: any) => {
     console.error("Upload error:", error);
     setUploadError("Upload failed. Check Cloudinary configuration.");
