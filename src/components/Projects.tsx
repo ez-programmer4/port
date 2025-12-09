@@ -36,10 +36,15 @@ export default function Projects() {
     const fetchProjects = async () => {
       try {
         const response = await fetch("/api/projects");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setProjects(data);
+        // Ensure data is an array
+        setProjects(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching projects:", error);
+        setProjects([]); // Set empty array on error
       } finally {
         setIsLoading(false);
       }

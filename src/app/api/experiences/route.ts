@@ -9,20 +9,30 @@ export async function GET() {
       orderBy: [{ order: "asc" }, { createdAt: "desc" }],
     });
 
-    const formattedExperiences = experiences.map((exp) => ({
-      ...exp,
-      achievements: JSON.parse(exp.achievements),
-      technologies: JSON.parse(exp.technologies),
-      highlights: JSON.parse(exp.highlights),
-    }));
+    const formattedExperiences = experiences.map((exp) => {
+      try {
+        return {
+          ...exp,
+          achievements: exp.achievements ? JSON.parse(exp.achievements) : [],
+          technologies: exp.technologies ? JSON.parse(exp.technologies) : [],
+          highlights: exp.highlights ? JSON.parse(exp.highlights) : [],
+        };
+      } catch (parseError) {
+        console.error(`Error parsing experience ${exp.id}:`, parseError);
+        return {
+          ...exp,
+          achievements: [],
+          technologies: [],
+          highlights: [],
+        };
+      }
+    });
 
     return NextResponse.json(formattedExperiences);
   } catch (error) {
     console.error("Error fetching experiences:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch experiences" },
-      { status: 500 }
-    );
+    // Return empty array on error to prevent client-side crashes
+    return NextResponse.json([], { status: 200 });
   }
 }
 
@@ -54,4 +64,5 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 

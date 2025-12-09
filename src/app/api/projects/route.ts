@@ -30,19 +30,28 @@ export async function GET(request: NextRequest) {
     });
 
     // Parse JSON strings
-    const formattedProjects = projects.map((project) => ({
-      ...project,
-      technologies: JSON.parse(project.technologies),
-      features: project.features ? JSON.parse(project.features) : [],
-    }));
+    const formattedProjects = projects.map((project) => {
+      try {
+        return {
+          ...project,
+          technologies: project.technologies ? JSON.parse(project.technologies) : [],
+          features: project.features ? JSON.parse(project.features) : [],
+        };
+      } catch (parseError) {
+        console.error(`Error parsing project ${project.id}:`, parseError);
+        return {
+          ...project,
+          technologies: [],
+          features: [],
+        };
+      }
+    });
 
     return NextResponse.json(formattedProjects);
   } catch (error) {
     console.error("Error fetching projects:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch projects" },
-      { status: 500 }
-    );
+    // Return empty array on error to prevent client-side crashes
+    return NextResponse.json([], { status: 200 });
   }
 }
 

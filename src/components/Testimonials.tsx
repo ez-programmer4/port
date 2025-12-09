@@ -26,10 +26,15 @@ export default function Testimonials() {
     const fetchTestimonials = async () => {
       try {
         const response = await fetch("/api/testimonials");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setTestimonials(data);
+        // Ensure data is an array
+        setTestimonials(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching testimonials:", error);
+        setTestimonials([]); // Set empty array on error
       } finally {
         setIsLoading(false);
       }

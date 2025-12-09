@@ -9,18 +9,26 @@ export async function GET() {
       orderBy: [{ order: "asc" }, { createdAt: "desc" }],
     });
 
-    const formattedSkills = skills.map((skill) => ({
-      ...skill,
-      technologies: JSON.parse(skill.technologies),
-    }));
+    const formattedSkills = skills.map((skill) => {
+      try {
+        return {
+          ...skill,
+          technologies: skill.technologies ? JSON.parse(skill.technologies) : [],
+        };
+      } catch (parseError) {
+        console.error(`Error parsing technologies for skill ${skill.id}:`, parseError);
+        return {
+          ...skill,
+          technologies: [],
+        };
+      }
+    });
 
     return NextResponse.json(formattedSkills);
   } catch (error) {
     console.error("Error fetching skills:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch skills" },
-      { status: 500 }
-    );
+    // Return empty array on error to prevent client-side crashes
+    return NextResponse.json([], { status: 200 });
   }
 }
 
@@ -50,4 +58,5 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 

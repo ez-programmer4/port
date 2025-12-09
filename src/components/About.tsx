@@ -20,10 +20,15 @@ export default function About() {
     const fetchSkills = async () => {
       try {
         const response = await fetch("/api/skills");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setSkills(data);
+        // Ensure data is an array
+        setSkills(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching skills:", error);
+        setSkills([]); // Set empty array on error
       } finally {
         setIsLoading(false);
       }

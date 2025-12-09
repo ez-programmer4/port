@@ -13,10 +13,8 @@ export async function GET() {
     return NextResponse.json(testimonials);
   } catch (error) {
     console.error("Error fetching testimonials:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch testimonials" },
-      { status: 500 }
-    );
+    // Return empty array on error to prevent client-side crashes
+    return NextResponse.json([], { status: 200 });
   }
 }
 
@@ -40,4 +38,5 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 
