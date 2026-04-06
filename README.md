@@ -44,7 +44,7 @@ Your portfolio is ready to deploy! Follow these guides:
 Deploy your portfolio to **ezedin.me** with full backend functionality in ~20 minutes:
 
 - ✅ Custom domain (ezedin.me)
-- ✅ MySQL database (Railway - $5 credit/month)
+- ✅ PostgreSQL database (Neon or Supabase free tier)
 - ✅ Admin dashboard working
 - ✅ Automatic deployments
 - ✅ 100% FREE hosting

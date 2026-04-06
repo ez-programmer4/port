@@ -23,7 +23,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
         transition={{ duration: 0.6 }}
         className={`py-20 px-4 sm:px-6 lg:px-8 ${className}`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto bg-white/95 border border-slate-200 rounded-[28px] p-6 sm:p-8 lg:p-12 shadow-[0_22px_65px_rgba(1,8,30,0.22)]">
           {(title || subtitle) && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -33,12 +33,12 @@ const Section = forwardRef<HTMLElement, SectionProps>(
               className="text-center mb-16"
             >
               {title && (
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                <h2 className="text-4xl font-bold text-slate-800 mb-4">
                   {title}
                 </h2>
               )}
               {subtitle && (
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                   {subtitle}
                 </p>
               )}

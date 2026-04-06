@@ -74,10 +74,10 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`bg-white/95 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 backdrop-blur-md ${
         scrolled
-          ? "shadow-lg border-b-2 border-gray-200"
-          : "shadow-sm border-b border-gray-200"
+          ? "bg-slate-950/85 shadow-2xl border-b border-indigo-200/20"
+          : "bg-slate-950/65 border-b border-slate-600/30"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,8 +101,8 @@ export default function Navigation() {
               />
             </motion.div>
             <div>
-              <div className="text-2xl font-bold text-gray-800">Ezedin</div>
-              <span className="text-sm text-gray-500 font-medium">
+              <div className="text-2xl font-bold text-slate-100">Ezedin</div>
+              <span className="text-sm text-slate-300 font-medium">
                 Software Engineer
               </span>
             </div>
@@ -126,8 +126,8 @@ export default function Navigation() {
                   whileTap={{ scale: 0.95 }}
                   className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
                     isActive
-                      ? "text-gray-800 bg-gray-100"
-                      : "text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+                      ? "text-white bg-orange-500/90"
+                      : "text-slate-200 hover:text-white hover:bg-slate-700/40"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function Navigation() {
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-800"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-300"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -183,7 +183,7 @@ export default function Navigation() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="px-2 pt-4 pb-4 space-y-2 sm:px-3 bg-gradient-to-b from-white to-gray-50 border-t border-gray-200"
+                className="px-2 pt-4 pb-4 space-y-2 sm:px-3 bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-500/40"
               >
                 {navItems.map((item, index) => {
                   const Icon = item.icon;
@@ -203,8 +203,8 @@ export default function Navigation() {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 font-medium ${
                         isActive
-                          ? "bg-gray-800 text-white shadow-md"
-                          : "text-gray-600 hover:text-gray-800 hover:bg-white hover:shadow-sm"
+                          ? "bg-orange-500 text-white shadow-md"
+                          : "text-slate-200 hover:text-white hover:bg-slate-800/70 hover:shadow-sm"
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -227,7 +227,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
-                  className="pt-4 px-2 border-t border-gray-200 mt-2"
+                  className="pt-4 px-2 border-t border-slate-500/40 mt-2"
                 >
                   <Button
                     size="md"

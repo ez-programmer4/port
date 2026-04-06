@@ -29,15 +29,15 @@ export default function IconButton({
   title,
 }: IconButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     default:
-      "bg-gray-100 text-gray-600 hover:bg-gray-800 hover:text-white focus:ring-gray-500",
+      "bg-slate-100/10 text-slate-200 hover:bg-orange-500 hover:text-white focus:ring-orange-300 border border-slate-500/40",
     ghost:
-      "bg-transparent text-gray-400 hover:text-gray-600 hover:bg-gray-100 focus:ring-gray-500",
+      "bg-transparent text-slate-300 hover:text-white hover:bg-slate-100/10 focus:ring-slate-300",
     outline:
-      "bg-transparent text-gray-600 border-2 border-gray-300 hover:bg-gray-100 focus:ring-gray-500",
+      "bg-transparent text-slate-100 border border-slate-500 hover:bg-slate-100/10 focus:ring-slate-300",
   };
 
   const sizes = {

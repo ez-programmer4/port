@@ -1,5 +1,8 @@
 # 🗄️ Database Setup Guide
 
+> Note: This file documents the legacy MySQL setup.
+> If you are moving because free MySQL quota expired, use [DATABASE_SETUP_POSTGRES.md](./DATABASE_SETUP_POSTGRES.md) instead.
+
 This guide will help you set up MySQL database with Prisma for your portfolio.
 
 ## Prerequisites

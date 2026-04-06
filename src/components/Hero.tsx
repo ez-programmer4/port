@@ -16,8 +16,7 @@ export default function Hero() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center">
       <div className="max-w-7xl mx-auto w-full">
-        {/* Hero Content - Centered Layout */}
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-4xl mx-auto panel-surface p-8 sm:p-12">
           {/* Welcome Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -43,9 +42,9 @@ export default function Hero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 rounded-full text-sm font-medium shadow-sm"
+                className="px-6 py-3 bg-gradient-to-r from-orange-500/20 to-cyan-400/20 text-slate-100 rounded-full text-sm font-semibold border border-slate-300/25"
               >
-                👋 Welcome to my portfolio
+                Welcome to my portfolio
               </motion.span>
             </div>
           </motion.div>
@@ -55,11 +54,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight"
           >
             Full-Stack Developer
             <br />
-            <span className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+            <span className="gradient-text">
               &amp; Software Engineer
             </span>
           </motion.h1>
@@ -69,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto"
+            className="text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto"
           >
             Building scalable web applications with modern technologies.
             Specialized in full-stack development and cloud solutions.
@@ -112,7 +111,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-center"
           >
-            <h3 className="text-sm font-semibold text-gray-600 mb-6 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-slate-300 mb-6 uppercase tracking-[0.2em]">
               Connect With Me
             </h3>
             <div className="flex justify-center gap-4">

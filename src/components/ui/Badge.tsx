@@ -16,14 +16,14 @@ export default function Badge({
   className = "",
 }: BadgeProps) {
   const baseClasses =
-    "inline-flex items-center font-medium rounded-full transition-all duration-200 hover:scale-105 cursor-default";
+    "inline-flex items-center font-semibold rounded-full transition-all duration-200 hover:scale-105 cursor-default";
 
   const variants = {
-    default: "bg-gray-100 text-gray-800 hover:bg-gray-200",
-    secondary: "bg-blue-100 text-blue-800 hover:bg-blue-200",
-    success: "bg-green-100 text-green-800 hover:bg-green-200",
-    warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
-    error: "bg-red-100 text-red-800 hover:bg-red-200",
+    default: "bg-slate-100/10 text-slate-100 border border-slate-400/30",
+    secondary: "bg-cyan-400/20 text-cyan-100 border border-cyan-300/40",
+    success: "bg-emerald-400/20 text-emerald-100 border border-emerald-300/40",
+    warning: "bg-amber-300/20 text-amber-100 border border-amber-200/40",
+    error: "bg-rose-400/20 text-rose-100 border border-rose-300/40",
   };
 
   const sizes = {
